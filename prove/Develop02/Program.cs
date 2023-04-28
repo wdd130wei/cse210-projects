@@ -16,6 +16,7 @@ class Program
                 "3. Load",
                 "4. Save",
                 "5. Quit",
+                "6. Delete my journal",
                 "What would you like to do?"
             };
 
@@ -48,6 +49,11 @@ class Program
             {
                 Console.WriteLine("Exiting the program. Goodbye!");
                 break;
+            }
+
+            else if (menuUserinput == 6)
+            {
+                journal.DeleteCSV();
             }
         }
 

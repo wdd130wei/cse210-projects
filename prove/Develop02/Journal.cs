@@ -39,26 +39,32 @@ class Journal
 
     public void SaveToCSV()
     {
-    string currentDirectory = Directory.GetCurrentDirectory();
-    string filePath = Path.Combine(currentDirectory, "Journal.csv");
+        Console.WriteLine("What is the filename?");
+        string filename = Console.ReadLine();
 
-    using (StreamWriter writer = new StreamWriter(filePath))
-    {
-        foreach (Entry entry in entries)
+        string currentDirectory = Directory.GetCurrentDirectory();
+        string filePath = Path.Combine(currentDirectory, filename);
+
+        using (StreamWriter writer = new StreamWriter(filePath))
         {
-            string entryCSV = entry.GetEntryAsCSV();
-            writer.WriteLine(entryCSV);
+            foreach (Entry entry in entries)
+            {
+                string entryCSV = entry.GetEntryAsCSV();
+                writer.WriteLine(entryCSV);
+            }
         }
-    }
 
-    Console.WriteLine($"Saved to CSV file. File path: {filePath}");
-    Console.WriteLine();
+        Console.WriteLine($"Saved to CSV file. File path: {filePath}");
+        Console.WriteLine();
     }
 
     public void LoadFromCSV()
     {
+        Console.WriteLine("What is the filename?");
+        string filename = Console.ReadLine();
+
         string currentDirectory = Directory.GetCurrentDirectory();
-        string filePath = Path.Combine(currentDirectory, "Journal.csv");
+        string filePath = Path.Combine(currentDirectory, filename);
 
         if (!File.Exists(filePath))
         {
@@ -88,6 +94,18 @@ class Journal
 
         Console.WriteLine($"Loaded from CSV file. File path: {filePath}");
         Console.WriteLine();
+    }
+    public void DeleteCSV()
+    {
+        Console.WriteLine("What is the filename?");
+        string filename = Console.ReadLine();
+
+        string currentDirectory = Directory.GetCurrentDirectory();
+        string filePath = Path.Combine(currentDirectory, filename);
+
+        File.Delete(filePath);
+        Console.WriteLine($"{filename} deleted successfully.");
+
     }
 
 }
