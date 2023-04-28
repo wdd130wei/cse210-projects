@@ -1,16 +1,19 @@
-
+using System;
 class Entry
 {
     string date, prompt, response;
 
     public Entry(string _date, string _prompt, string _response)
     {
-
+        date = _date;
+        prompt = _prompt;
+        response = _response;
     }
 
     public void DisplayEntry()
     {
-        Console.WriteLine
+        Console.WriteLine($"Date: {date} - {prompt}");
+        Console.WriteLine(response);
     }
 
     public string GetEntryAsCSV()
