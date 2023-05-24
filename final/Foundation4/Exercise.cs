@@ -1,33 +1,36 @@
 
 public abstract class Exercise
 {
-    protected string _date;
+    protected DateTime _date { get; set; }
     protected double _distance;
     protected double _length;
-    protected double _speed;
-    protected double _pace;
 
-    public Exercise(string date, double length, double distance)
+    public Exercise(DateTime date, double length)
     {
         _date = date;
         _length = length;
-        _distance = distance;
     }
 
-    public double GetDistance()
+    public virtual double GetDistance()
     {
         return _distance;
     }
-    public double GetSpeed()
+
+    public virtual double GetLength()
     {
-        return (_distance / _length) * 60;
+        return _length;
     }
-    public double GetPace()
+    public virtual double GetSpeed()
     {
-        return _length / _distance;
+        return (GetDistance() / GetLength()) * 60;
+    }
+    public virtual double GetPace()
+    {
+        return GetLength() / GetDistance();
     }
     public virtual string GetSummary()
     {
-        return $"{_date} {GetType().Name} ({_length} min) - Distance {_distance} km, Speed {GetSpeed()} kph, Pace {GetPace()} min per km";
+        string formattedDate = _date.ToString("dd MMM yyyy");
+        return $"{formattedDate} {GetType().Name} ({GetLength()} min) - Distance {GetDistance()} km, Speed {GetSpeed()} kph, Pace {GetPace()} min per km";
     }
 }
