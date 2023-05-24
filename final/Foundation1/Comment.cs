@@ -1,8 +1,8 @@
 
 public class Comment
 {
-    string _commenter;
-    string _comment;
+    private string _commenter;
+    private string _comment;
 
     public Comment(string commenter, string comment)
     {
@@ -10,13 +10,13 @@ public class Comment
         _comment = comment;
     }
 
-    public string GetCommenter
+    public string GetCommenter()
     {
-        get { return _commenter;}
+        return _commenter;
     }
 
-    public string GetComment
+    public string GetComment()
     {
-        get { return _comment;}
+        return _comment;
     }
 }

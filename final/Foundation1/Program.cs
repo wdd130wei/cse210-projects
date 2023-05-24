@@ -27,14 +27,14 @@ class Program
 
         foreach (Video video in _videos) 
         {
-            Console.WriteLine("Title: " + video.Title);
-            Console.WriteLine("Author: " + video.Author);
-            Console.WriteLine("Length: " + video.Length + " seconds");
+            Console.WriteLine("Title: " + video.GetTitle());
+            Console.WriteLine("Author: " + video.GetAuthor());
+            Console.WriteLine("Length: " + video.GetLength() + " seconds");
             Console.WriteLine("Number of comments: " + video.GetNumberOfComments());
 
         foreach (Comment comment in video.GetComments()) 
         {
-            Console.WriteLine(comment.GetCommenter + ": " + comment.GetComment);
+            Console.WriteLine(comment.GetCommenter() + ": " + comment.GetComment());
         }
 
             Console.WriteLine(); 

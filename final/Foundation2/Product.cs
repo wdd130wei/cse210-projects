@@ -22,7 +22,7 @@ public class Product
     {
         return _productName;
     }
-    public int GetproductID()
+    public int GetProductID()
     {
         return _productID;
     }

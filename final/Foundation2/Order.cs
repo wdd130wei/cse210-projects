@@ -48,7 +48,7 @@ public class Order
         foreach (Product product in _products)
         {
             _productName = product.GetProductName();
-            _productID = product.GetproductID();
+            _productID = product.GetProductID();
             packingLable += $"{_productName} - {_productID}\n";
         }
         return packingLable;

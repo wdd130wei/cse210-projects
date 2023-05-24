@@ -1,10 +1,10 @@
 
 public class Video
 {
-    public string _title;
-    public string _author;
-    public int _length;
-    public List<Comment> _comments;
+    private string _title;
+    private string _author;
+    private int _length;
+    private List<Comment> _comments;
 
     public Video(string title, string author, int length)
     {
@@ -17,19 +17,19 @@ public class Video
     {
         _comments.Add(new Comment(commenter, comment));
     }
-    public string Title 
+    public string GetTitle() 
     {
-        get { return _title; }
+        return _title;
     }
 
-    public string Author 
+    public string GetAuthor() 
     {
-        get { return _author; }
+        return _author;
     }
 
-    public int Length 
+    public int GetLength() 
     {
-        get { return _length; }
+        return _length;
     }
 
     public int GetNumberOfComments()
@@ -41,6 +41,4 @@ public class Video
     {
         return _comments;
     }
-
-
 }
